@@ -53,7 +53,7 @@ const HomeScreen: FC<Props> = props => {
             <View style={styles.inputContainer}>
               <Ionicons
                 name="md-search-outline"
-                color={Constants.colors.primary}
+                color={Constants.colors.secondary}
                 size={Constants.fonts.xLargeFontSize}
               />
               <MyAppText style={styles.inputPlaceholder}>
