@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {
   Text,
   StyleSheet,
@@ -11,7 +11,9 @@ import DeviceUiInfo from '../../config/device';
 import Feather from 'react-native-vector-icons/Feather';
 import MyAppText from '../main/MyAppText';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import {getCockTails} from '../../ducks/actions/cocktails';
+import {useDispatch, useSelector} from 'react-redux';
+import {itemsSet} from '../../ducks/reducers/general';
 interface Props {
   onChangeText: (text: string) => void;
   children: null;
@@ -20,6 +22,11 @@ interface Props {
 
 const SearchInputHeader: FC<Props> = props => {
   const [searchInputText, setSearchInputText] = useState('');
+  const {cocktails} = useSelector(state => state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (searchInputText.length >= 3) dispatch(getCockTails(searchInputText));
+  }, [searchInputText]);
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => props.navigation.goBack()}>
