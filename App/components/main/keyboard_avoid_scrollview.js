@@ -17,9 +17,7 @@ export default function KeyboardAvoidScrollview(props) {
       enabled={Platform.OS === 'ios' ? true : false}
       style={{
         flex: 1,
-        backgroundColor: !!props.backgroundColor
-          ? props.backgroundColor
-          : Constants.colors.white,
+        backgroundColor: !!props.backgroundColor ? props.backgroundColor : null,
       }}>
       <SafeAreaView>
         {!!props.header ? props.header : null}
