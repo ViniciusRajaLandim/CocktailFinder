@@ -22,7 +22,6 @@ interface Props {
 
 const SearchInputHeader: FC<Props> = props => {
   const [searchInputText, setSearchInputText] = useState('');
-  const {cocktails} = useSelector(state => state);
   const dispatch = useDispatch();
   useEffect(() => {
     if (searchInputText.length >= 3) dispatch(getCockTails(searchInputText));

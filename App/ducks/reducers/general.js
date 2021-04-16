@@ -1,12 +1,24 @@
-export function items(state = [], action) {
+const itemsInitialState = {status: 'idle', items: []};
+export function items(state = itemsInitialState, action) {
   switch (action.type) {
     case 'ITEMS_FETCH_DATA_SUCCESS':
-      return action.payload.items;
+      return {
+        status: 'success',
+        items: action.payload.items,
+      };
+    case 'ITEMS_FETCH_DATA_PENDING':
+      return {
+        status: 'pending',
+        items: [...state.items],
+      };
     case 'ITEMS_REMOVE_ITEM':
-      return [
-        ...state.slice(0, action.payload.index),
-        ...state.slice(action.payload.index + 1),
-      ];
+      return {
+        status: 'pending',
+        items: [
+          ...state.slice(0, action.payload.index),
+          ...state.slice(action.payload.index + 1),
+        ],
+      };
     default:
       return state;
   }
@@ -19,6 +31,12 @@ export function itemsSet(items, name) {
     payload: {
       items,
     },
+  };
+}
+export function itemsSetPending(items, name) {
+  return {
+    type: 'ITEMS_FETCH_DATA_PENDING',
+    name,
   };
 }
 

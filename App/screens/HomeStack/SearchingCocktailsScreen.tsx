@@ -1,32 +1,29 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Image,
-  ImageBackground,
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
-import KeyboardAvoidScrollview from '../../components/main/keyboard_avoid_scrollview';
-
-import MyAppText from '../../components/main/MyAppText';
 import Constants from '../../config';
-import DeviceUiInfo from '../../config/device';
 import SearchInputHeader from '../../components/HomeStack/SearchInputHeader';
+import CocktailsList from '../../components/HomeStack/cocktailsListComponent/CocktailsList';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const SearchingCocktailsScreen = props => {
   return (
-    <KeyboardAvoidScrollview backgroundColor={Constants.colors.primary}>
+    <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
         <SearchInputHeader navigation={props.navigation} />
+        <CocktailsList />
       </View>
-    </KeyboardAvoidScrollview>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    height: Constants.layout.window.height,
     padding: Constants.layout.padding,
+    paddingBottom: 0,
+    backgroundColor: Constants.colors.primary,
   },
 });
 
