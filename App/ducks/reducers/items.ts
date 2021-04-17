@@ -1,4 +1,4 @@
-import {IitemsState, ItemsTypes, Icocktail} from '../types';
+import {IitemsState, ItemsTypes} from '../types';
 
 import {Reducer} from 'redux';
 const INITIAL_STATE: IitemsState = {

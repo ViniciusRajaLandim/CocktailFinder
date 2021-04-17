@@ -1,4 +1,4 @@
-import React, {FC, ReactText} from 'react';
+import React, {FC} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 import Constants from '../../config';
 

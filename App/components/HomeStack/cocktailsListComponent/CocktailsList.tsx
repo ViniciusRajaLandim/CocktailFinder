@@ -1,13 +1,10 @@
 import React, {FC} from 'react';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Constants from '../../../config';
-import DeviceUiInfo from '../../../config/device';
-import MyAppText from '../../main/MyAppText';
 import {useSelector} from 'react-redux';
 import CocktailsCardItem from './CocktailsCardItem';
 import {FlatList} from 'react-native-gesture-handler';
 import LoadingComponent from '../../main/LoadingComponent';
-import {Icocktail} from '../../../ducks/types';
 import {AplicationState} from '../../../ducks/configurationStore';
 
 interface Props {}

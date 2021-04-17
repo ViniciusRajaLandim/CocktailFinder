@@ -1,11 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, View, TextInput, TouchableOpacity} from 'react-native';
 import Constants from '../../config';
 import DeviceUiInfo from '../../config/device';
 import Feather from 'react-native-vector-icons/Feather';

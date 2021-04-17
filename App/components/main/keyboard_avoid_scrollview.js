@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 
 import DeviceInfo from 'react-native-device-info';
-import Constants from '../../config';
 import {SafeAreaView} from 'react-navigation';
 export default function KeyboardAvoidScrollview(props) {
   return (

@@ -1,7 +1,6 @@
 import {combineReducers, Reducer, AnyAction} from 'redux';
 import items from './reducers/items';
-import {IitemsState, ItemsTypes, Icocktail} from './types';
-import {ActionType} from 'typesafe-actions';
+import {IitemsState} from './types';
 
 function createNamedWrapperReducer(
   reducerFunction: Reducer<IitemsState>,

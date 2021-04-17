@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, Store, Middleware} from 'redux';
-import thunk, {ThunkAction} from 'redux-thunk';
+import thunk from 'redux-thunk';
 import rootReducer from './rootReducers';
 import {IitemsState} from './types';
 export interface AplicationState {
