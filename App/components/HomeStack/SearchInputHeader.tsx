@@ -23,7 +23,7 @@ const SearchInputHeader: FC<Props> = props => {
       <TouchableOpacity onPress={() => props.navigation.goBack()}>
         <Feather
           name="arrow-left"
-          color={Constants.colors.secondary}
+          color={Constants.colors.white}
           size={Constants.fonts.xLargeFontSize}
         />
       </TouchableOpacity>

@@ -6,6 +6,7 @@ import CocktailsCardItem from './CocktailsCardItem';
 import {FlatList} from 'react-native-gesture-handler';
 import LoadingComponent from '../../main/LoadingComponent';
 import {AplicationState} from '../../../ducks/configurationStore';
+import MyAppText from '../../main/MyAppText';
 
 interface Props {}
 
@@ -23,6 +24,9 @@ const CocktailsList: FC<Props> = props => {
         numColumns={2}
         ListHeaderComponent={() => (
           <LoadingComponent loading={fetchIsLoading} />
+        )}
+        ListEmptyComponent={() => (
+          <MyAppText white>No results where found, try again.</MyAppText>
         )}
         ListHeaderComponentStyle={styles.listHeader}
         ItemSeparatorComponent={() => <View style={styles.itemSeparator} />}
