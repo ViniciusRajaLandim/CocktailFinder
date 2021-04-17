@@ -13,6 +13,7 @@ interface Props {}
 const CocktailsList: FC<Props> = props => {
   const {cocktails} = useSelector((state: AplicationState) => state);
   const fetchIsLoading = cocktails.status == 'pending';
+  const fetchIsSuccess = cocktails.status == 'success';
   return (
     <View style={styles.container}>
       <FlatList
@@ -26,7 +27,7 @@ const CocktailsList: FC<Props> = props => {
           <LoadingComponent loading={fetchIsLoading} />
         )}
         ListEmptyComponent={() => (
-          <MyAppText white>No results where found, try again.</MyAppText>
+          fetchIsSuccess?<MyAppText white>No results where found, try again.</MyAppText>:null
         )}
         ListHeaderComponentStyle={styles.listHeader}
         ItemSeparatorComponent={() => <View style={styles.itemSeparator} />}
