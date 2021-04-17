@@ -27,9 +27,11 @@ const LoadingComponent: FC<Props> = props => {
           opacity: animatedOpacity,
         },
       ]}>
-      <View style={styles.opacityContianer} />
-      <MyAppText>Loading ...</MyAppText>
-      <ActivityIndicator size="large" color={Constants.colors.secondary} />
+      <View style={styles.opacityContainer} />
+      <View style={styles.loaderContainer}>
+        <MyAppText style={styles.loadingText}>Loading ...</MyAppText>
+        <ActivityIndicator size="large" color={Constants.colors.secondary} />
+      </View>
     </Animated.View>
   ) : null;
 };
@@ -39,17 +41,22 @@ export default LoadingComponent;
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingVertical: Constants.layout.padding / 2,
     marginBottom: Constants.layout.padding / 2,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  opacityContianer: {
+  opacityContainer: {
     borderRadius: DeviceUiInfo.scale(15),
     backgroundColor: Constants.colors.white,
     opacity: 0.3,
     width: '100%',
     height: '100%',
     position: 'absolute',
+  },
+  loaderContainer: {
+    paddingVertical: Constants.layout.padding / 2,
+  },
+  loadingText: {
+    marginBottom: Constants.layout.padding / 4,
   },
 });
