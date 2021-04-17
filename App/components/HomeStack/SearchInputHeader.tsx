@@ -8,6 +8,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {getCockTails} from '../../ducks/thunk/cocktails';
 import {useDispatch, useSelector} from 'react-redux';
 import {NavigationStackProp} from 'react-navigation-stack';
+import {itemsCleanList} from '../../ducks/actions/items';
 interface Props {
   navigation: NavigationStackProp;
 }
@@ -18,6 +19,10 @@ const SearchInputHeader: FC<Props> = props => {
   useEffect(() => {
     if (searchInputText.length >= 3) dispatch(getCockTails(searchInputText));
   }, [searchInputText]);
+  const hanldeCancelButton = () => {
+    setSearchInputText('');
+    dispatch(itemsCleanList({name: 'cocktailsReducer'}));
+  };
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => props.navigation.goBack()}>
@@ -44,7 +49,7 @@ const SearchInputHeader: FC<Props> = props => {
           value={searchInputText}
         />
       </View>
-      <TouchableOpacity onPress={() => setSearchInputText('')}>
+      <TouchableOpacity onPress={() => hanldeCancelButton()}>
         <MyAppText color={Constants.colors.secondary}>Cancel</MyAppText>
       </TouchableOpacity>
     </View>
