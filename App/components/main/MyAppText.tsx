@@ -1,23 +1,24 @@
-import React,{FC} from 'react';
+import React, {FC, ReactText} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 import Constants from '../../config';
 
 interface Props {
-    h1:boolean;
-    h2:boolean;
-    h3:boolean;
-    h4:boolean;
-    h5:boolean;
-    p:boolean;
-    bold:boolean;
-    italic:boolean;
-    color:string;
-    white:boolean;
-    style:object;
-    contentContainerStyle:object;
+  h1?: boolean;
+  h2?: boolean;
+  h3?: boolean;
+  h4?: boolean;
+  h5?: boolean;
+  p?: boolean;
+  bold?: boolean;
+  italic?: boolean;
+  color?: string;
+  white?: boolean;
+  style?: object;
+  children: string | Element;
+  contentContainerStyle?: object;
 }
 
-const MyAppText:FC<Props> = props => {
+const MyAppText: FC<Props> = props => {
   function determineFontSize() {
     let fontSize = Constants.fonts.mediumFontSize;
     if (props.h1) fontSize = Constants.fonts.xLargeFontSize;

@@ -7,14 +7,13 @@ import {useSelector} from 'react-redux';
 import CocktailsCardItem from './CocktailsCardItem';
 import {FlatList} from 'react-native-gesture-handler';
 import LoadingComponent from '../../main/LoadingComponent';
-interface Props {
-  onChangeText: (text: string) => void;
-  children: null;
-  navigation: object;
-}
+import {Icocktail} from '../../../ducks/types';
+import {AplicationState} from '../../../ducks/configurationStore';
+
+interface Props {}
 
 const CocktailsList: FC<Props> = props => {
-  const {cocktails} = useSelector(state => state);
+  const {cocktails} = useSelector((state: AplicationState) => state);
   const fetchIsLoading = cocktails.status == 'pending';
   return (
     <View style={styles.container}>

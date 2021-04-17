@@ -11,13 +11,11 @@ import DeviceUiInfo from '../../config/device';
 import Feather from 'react-native-vector-icons/Feather';
 import MyAppText from '../main/MyAppText';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {getCockTails} from '../../ducks/actions/cocktails';
+import {getCockTails} from '../../ducks/thunk/cocktails';
 import {useDispatch, useSelector} from 'react-redux';
-import {itemsSet} from '../../ducks/reducers/general';
+import {NavigationStackProp} from 'react-navigation-stack';
 interface Props {
-  onChangeText: (text: string) => void;
-  children: null;
-  navigation: object;
+  navigation: NavigationStackProp;
 }
 
 const SearchInputHeader: FC<Props> = props => {
@@ -51,7 +49,9 @@ const SearchInputHeader: FC<Props> = props => {
           value={searchInputText}
         />
       </View>
-      <MyAppText color={Constants.colors.secondary}>Cancel</MyAppText>
+      <TouchableOpacity onPress={() => setSearchInputText('')}>
+        <MyAppText color={Constants.colors.secondary}>Cancel</MyAppText>
+      </TouchableOpacity>
     </View>
   );
 };

@@ -5,6 +5,7 @@ import {
   ImageBackground,
   View,
   TouchableOpacity,
+  LayoutChangeEvent,
 } from 'react-native';
 
 import KeyboardAvoidScrollview from '../../components/main/keyboard_avoid_scrollview';
@@ -13,12 +14,18 @@ import MyAppText from '../../components/main/MyAppText';
 import Constants from '../../config';
 import DeviceUiInfo from '../../config/device';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {NavigationStackProp} from 'react-navigation-stack';
+
+interface Props {
+  children: null;
+  navigation: NavigationStackProp;
+}
 const inputContainerHeight = DeviceUiInfo.verticalScale(40);
 const HomeScreen: FC<Props> = props => {
   const [centeredComponentHeight, setCenteredComponentHeight] = useState(
     DeviceUiInfo.verticalScale(150),
   );
-  function getCenteredComponentDimensions(event: object) {
+  function getCenteredComponentDimensions(event: LayoutChangeEvent) {
     const {height} = event.nativeEvent.layout;
     setCenteredComponentHeight(height);
   }

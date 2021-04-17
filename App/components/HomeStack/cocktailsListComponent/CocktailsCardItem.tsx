@@ -5,9 +5,10 @@ import DeviceUiInfo from '../../../config/device';
 import MyAppText from '../../main/MyAppText';
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
+import {Icocktail} from '../../../ducks/types';
+
 interface Props {
-  children: null;
-  navigation: object;
+  cocktail: Icocktail;
 }
 
 const CocktailsCardItem: FC<Props> = props => {
@@ -27,7 +28,6 @@ const CocktailsCardItem: FC<Props> = props => {
       <View style={styles.footerContainer}>
         <MyAppText white>{cocktail.strDrink}</MyAppText>
       </View>
-      {/* </ImageBackground> */}
     </View>
   );
 };
