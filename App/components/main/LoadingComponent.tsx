@@ -14,7 +14,6 @@ const LoadingComponent: FC<Props> = props => {
     Animated.timing(animatedOpacity, {
       toValue: 1,
       duration: 500,
-      extrapolate: 'clamp',
       useNativeDriver: true,
     }).start();
   }, [props.loading]);
