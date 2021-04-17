@@ -6,9 +6,8 @@ import {
   View,
   TouchableOpacity,
   LayoutChangeEvent,
+  ScrollView,
 } from 'react-native';
-
-import KeyboardAvoidScrollview from '../../components/main/keyboard_avoid_scrollview';
 
 import MyAppText from '../../components/main/MyAppText';
 import Constants from '../../config';
@@ -32,7 +31,7 @@ const HomeScreen: FC<Props> = props => {
   const centeredComponentOffset =
     centeredComponentHeight - inputContainerHeight / 2;
   return (
-    <KeyboardAvoidScrollview backgroundColor={Constants.colors.dark}>
+    <ScrollView>
       <ImageBackground
         style={styles.backgroundImageContainer}
         source={require('../../assets/images/HomeStack/HomeScreenBackground.png')}>
@@ -70,7 +69,7 @@ const HomeScreen: FC<Props> = props => {
           </TouchableOpacity>
         </View>
       </ImageBackground>
-    </KeyboardAvoidScrollview>
+    </ScrollView>
   );
 };
 
