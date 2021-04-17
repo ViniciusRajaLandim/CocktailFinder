@@ -13,6 +13,12 @@ const reducer: Reducer<IitemsState> = (state = INITIAL_STATE, action) => {
         items: action.payload.items,
       };
     }
+    case ItemsTypes.ITEMS_CLEAN_ITEM_LIST: {
+      return {
+        status: 'idle',
+        items: [],
+      };
+    }
     case ItemsTypes.ITEMS_FETCH_DATA_PENDING:
       return {
         status: 'pending',
