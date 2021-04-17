@@ -36,6 +36,7 @@ const SearchInputHeader: FC<Props> = props => {
           size={Constants.fonts.xLargeFontSize}
         />
         <TextInput
+          selectionColor={Constants.colors.secondary}
           style={styles.inputText}
           placeholder={'Search'}
           placeholderTextColor={Constants.colors.white}
