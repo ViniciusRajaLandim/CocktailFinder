@@ -26,6 +26,8 @@
 
 - [Technologies](#computer-technologies)
 - [Features](#rocket-features)
+- [Libraries](#computer-Used-Libraries)
+- [Improvements](#computer-Improvements)
 - [How to Run](#construction_worker-how-to-run)
 - [Found a bug? Missing a specific feature?](#bug-issues)
 - [License](#closed_book-license)
@@ -39,8 +41,8 @@
 
 ### App running in Android Simulator
 
-<div style="display:flex;justify-content:center;align-items:center">
-   <img  src="./readme/app_screen.gif" width="150px">
+<div align="center" style="display:flex;justify-content:center;align-items:center">
+   <img  src="./readme/app_screen.gif" width="230px">
 </div>
 
 # :computer: Technologies
@@ -61,6 +63,18 @@ This project was made using the following Libraries:
 - [react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen): Used to creat Apps Splashscreen.
 - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons): Library of Icons.
 - [redux-thunk](https://github.com/reduxjs/redux-thunk): Redux Middleware used to write async logic(fetch cocktails from api) that interacts with the Redux store.
+
+# :computer: Improvements
+
+Improvements that could be implemented in cases there was a Large List of items:
+
+- Add pagination to fetch request
+- Load cocktails items accordingly to the pagination using FlatList properties such as onEndReached, onEndReachedThreshold to load more items only when getting close to the end of the list.
+
+- Also, could be used some Flatlist properties to increase performance as suggested in the official docs, such as:
+  - maxToRenderPerBatch (will limit the number of items rendered per scroll, updateCellsBatchingPeriod (determine the period of reloads per scroll)
+  - getItemLayout used to remove the need for FlatList to manage async layout calculations, but can only be used if all the items have the same width or height;
+  - windowSize (used to specify the number of viewports loaded, the default value is 21, should choose the best fitting value based on the number of items per viewport).
 
 # :rocket: Features
 

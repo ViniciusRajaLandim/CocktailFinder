@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, memo} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Constants from '../../../config';
 import DeviceUiInfo from '../../../config/device';
@@ -9,12 +9,13 @@ import {Icocktail} from '../../../ducks/types';
 
 interface Props {
   cocktail: Icocktail;
+  height: number;
 }
 
 const CocktailsCardItem: FC<Props> = props => {
-  const {cocktail} = props;
+  const {cocktail, height} = props;
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {height}]}>
       <FastImage
         style={styles.backgroundImage}
         source={{uri: cocktail.strDrinkThumb}}
@@ -25,20 +26,20 @@ const CocktailsCardItem: FC<Props> = props => {
         end={{x: 0, y: 0.8}}
         colors={['#ffffFF00', Constants.colors.primary]}
       />
-      <View style={styles.footerContainer}>
-        <MyAppText white>{cocktail.strDrink}</MyAppText>
-      </View>
+      <MyAppText style={styles.footerText} white>
+        {cocktail.strDrink}
+      </MyAppText>
     </View>
   );
 };
 
-export default CocktailsCardItem;
+export default memo(CocktailsCardItem);
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: 'flex-end',
     borderRadius: DeviceUiInfo.scale(10),
     overflow: 'hidden',
-    height: DeviceUiInfo.verticalScale(200),
     width: (Constants.layout.window.width - 3 * Constants.layout.padding) / 2,
   },
   backgroundImage: {
@@ -46,10 +47,7 @@ const styles = StyleSheet.create({
     height: '100%',
     position: 'absolute',
   },
-  footerContainer: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-start',
+  footerText: {
     paddingLeft: Constants.layout.padding / 2,
     paddingBottom: Constants.layout.padding / 2,
   },
