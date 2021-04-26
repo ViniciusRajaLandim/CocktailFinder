@@ -66,7 +66,7 @@ This project was made using the following Libraries:
 
 # :computer: Improvements
 
-Improvements that could be implemented in cases there was a Large List of items:
+Improvements that could be implemented in case there was a Large List of items:
 
 - Add pagination to fetch request
 - Load cocktails items accordingly to the pagination using FlatList properties such as onEndReached, onEndReachedThreshold to load more items only when getting close to the end of the list.
